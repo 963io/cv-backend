@@ -64,8 +64,8 @@ Mostly experienced in backend development, but along the way I've done my fair s
           {
             company: 'OSN Media',
             position: 'PHP Developer',
-            location: 'ON_SITE',
-            employment_type: 'FULL_TIME',
+            location: 'REMOTE',
+            employment_type: 'CONTRACT',
             startDate: new Date('2018-11-01'),
             endDate: new Date('2022-06-01'),
             highlights: `- Highly customized WP media platform
@@ -80,8 +80,8 @@ Mostly experienced in backend development, but along the way I've done my fair s
           {
             company: 'RZD Medicine',
             position: 'IT Specialist',
-            location: 'ON_SITE',
-            employment_type: 'FULL_TIME',
+            location: 'REMOTE',
+            employment_type: 'CONTRACT',
             startDate: new Date('2017-08-01'),
             endDate: new Date('2022-01-01'),
             highlights: `- WordPress internal tooling and widgets
