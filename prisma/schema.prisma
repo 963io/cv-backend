@@ -1,0 +1,85 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+//  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Profile {
+  id Int @id @default(autoincrement())
+  name String
+  about String
+  links Link[]
+  skills Skill[]
+  experience Experience[]
+  projects Project[]
+}
+
+model Link {
+  id Int @id @default(autoincrement())
+  type LinkType
+  url String
+  profile Profile @relation(fields: [profileId], references: [id])
+  profileId Int
+}
+
+enum LinkType {
+  LINKEDIN
+  GITHUB
+  OTHER
+}
+
+model Skill {
+  id Int @id @default(autoincrement())
+  title String
+  profile Profile @relation(fields: [profileId], references: [id])
+  profileId Int
+}
+
+model Experience {
+  id Int @id @default(autoincrement())
+  company String
+  position String
+  location Location
+  employment_type Employment
+  highlights String?
+  startDate DateTime
+  endDate DateTime?
+  profile Profile @relation(fields: [profileId], references: [id])
+  profileId Int
+}
+
+enum Location {
+  ON_SITE @map("On-Site")
+  HYBRID @map("Hybrid")
+  REMOTE @map("Remote")
+}
+
+enum Employment {
+  FULL_TIME @map("Full-time")
+  PART_TIME @map("Part-time")
+  CONTRACT @map("Contract")
+  FREELANCE @map("Freelance")
+  SELF_EMPLOYED @map("Self-Employed")
+  SEASONAL @map("Seasonal")
+  INTERNSHIP @map("Internship")
+}
+
+model Project {
+  id Int @id @default(autoincrement())
+  title String
+  description String?
+  url String?
+  profile Profile @relation(fields: [profileId], references: [id])
+  profileId Int
+}
+
