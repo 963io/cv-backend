@@ -119,7 +119,7 @@ Mostly experienced in backend development, but along the way I've done my fair s
           {
             title: 'CV Backend',
             description: 'Digital business card API built with NestJS, GraphQL, Prisma, and PostgreSQL',
-            url: 'https://github.com/itsolman/cv-backend',
+            url: 'https://github.com/963io/cv-backend',
           },
         ],
       },
